@@ -8,6 +8,15 @@ public class dept {
 	@Id
 	int dept_id;
 	String dept_name;
+	public dept() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public dept(int dept_id, String dept_name) {
+		super();
+		this.dept_id = dept_id;
+		this.dept_name = dept_name;
+	}
 	public int getDept_id() {
 		return dept_id;
 	}

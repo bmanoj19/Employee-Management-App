@@ -1,18 +1,35 @@
 package com.emp_manage.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Emp {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 	String name;
 	String city, email;
 	int deptid;
 
+	public Emp(int id, String name, String city, String email, int deptid) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.city = city;
+		this.email = email;
+		this.deptid = deptid;
+	}
+
 	public int getId() {
 		return id;
+	}
+
+	public Emp() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public void setId(int id) {
@@ -43,12 +60,12 @@ public class Emp {
 		this.email = email;
 	}
 
-	public int getDept_id() {
+	public int getdeptid() {
 		return deptid;
 	}
 
-	public void setDept_id(int dept_id) {
-		this.deptid = dept_id;
+	public void setdeptid(int deptid) {
+		this.deptid = deptid;
 	}
 
 	@Override

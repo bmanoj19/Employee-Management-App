@@ -79,7 +79,7 @@ public class EmpServiceImpl implements EmpService {
 		Emp Employee = repo.findById(id).orElseThrow(()->new NoEmpExistException("No Employee with exist with Id "+id));
 		ResponseDto result = new ResponseDto();
 		result.setEmployee(Employee);
-		ResponseEntity<DeptDto> Department = rt.getForEntity("http://localhost:8081/dept/"+Employee.getDept_id(), DeptDto.class);
+		ResponseEntity<DeptDto> Department = rt.getForEntity("http://localhost:8081/dept/"+Employee.getdeptid(), DeptDto.class);
 		result.setDepartment(Department.getBody());
 		return result;
 	}
@@ -91,7 +91,7 @@ public class EmpServiceImpl implements EmpService {
 		for(int i=0;i<Employee.size();i++) {
 			ResponseDto temp = new ResponseDto();
 			temp.setEmployee(Employee.get(i));
-			ResponseEntity<DeptDto> Department = rt.getForEntity("http://localhost:8081/dept/"+Employee.get(i).getDept_id(), DeptDto.class);
+			ResponseEntity<DeptDto> Department = rt.getForEntity("http://localhost:8081/dept/"+Employee.get(i).getdeptid(), DeptDto.class);
 			temp.setDepartment(Department.getBody());
 			response.add(temp);
 		}
